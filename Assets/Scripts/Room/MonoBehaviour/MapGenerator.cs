@@ -50,7 +50,7 @@ public class MapGenerator : MonoBehaviour
     private void OnEnable()
     {
 
-        if (mapLayout.mapRoomDataList.Count > 0) LoadMap(); //如果生成过地图
+        if (mapLayout.mapRoomDataList.Count > 0) LoadMap(); //如果生成过地图,则加载地图
         else CreatMap(); //没有生成过地图
     }
     public void CreatMap()

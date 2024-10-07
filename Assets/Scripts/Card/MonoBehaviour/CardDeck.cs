@@ -13,6 +13,7 @@ public class CardDeck : MonoBehaviour
 
     public Vector3 deckPosition; //抽牌动画起始的位置
 
+    //测试用
     private void Start()
     {
         InitializeDeck();
@@ -30,7 +31,7 @@ public class CardDeck : MonoBehaviour
             }
         }
     }
-    [ContextMenu("TestDrawCard")]
+    [ContextMenu("TestDrawCard")] //测试用
     public void TestDrawCard()
     {
         DrawCard(1);

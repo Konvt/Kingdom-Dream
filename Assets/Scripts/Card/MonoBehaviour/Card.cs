@@ -6,14 +6,14 @@ using UnityEngine.Rendering;
 
 public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 {
-    [Header("组件")]
-    public SpriteRenderer cardSprite;
+    [Header("组件")] 
+    public SpriteRenderer cardSprite; 
 
     public TextMeshPro costText, descriptionText, typeText;
 
     public CardDataSO cardData;
 
-    [Header("原始数据")]
+    [Header("原始数据")] //原始数据，用于动画效果后恢复原始位置
     public Vector3 originalPosition;
     public quaternion originalRotation;
     public int originalLayOrder;
@@ -23,7 +23,7 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     {
         Init(cardData);
     }
-    public void  Init(CardDataSO data )
+    public void  Init(CardDataSO data ) //根据卡牌数据初始化卡牌
     {
         this.cardData = data;
         cardSprite.sprite = data.cardImage;
@@ -37,7 +37,7 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
             _ => throw new System.NotImplementedException(),
         };
     }
-
+    //卡牌坐标生成后，赋值给原始坐标
     public void UpdatePositionRotation(Vector3 position, Quaternion rotation)
     {
         originalPosition = position;
@@ -45,7 +45,7 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         originalLayOrder = GetComponent<SortingGroup>().sortingOrder;
     }
 
-    
+    //鼠标进入事件,卡牌实现抽出效果
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (isAnimating) return;
@@ -53,13 +53,14 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         transform.rotation = quaternion.identity;
         GetComponent<SortingGroup>().sortingOrder = 20;
     }
-
+    //鼠标移出事件
     public void OnPointerExit(PointerEventData eventData)
     {
         if (isAnimating) return;
         ResetCardTransform();
 
     }
+    //恢复卡牌原始位置
     public void ResetCardTransform()
     {
         transform.position=originalPosition;
