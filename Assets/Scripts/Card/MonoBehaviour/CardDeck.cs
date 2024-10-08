@@ -30,6 +30,7 @@ public class CardDeck : MonoBehaviour
                 drawDeck.Add(entry.cardData);
             }
         }
+        ShuffleDeck();
     }
     [ContextMenu("TestDrawCard")] //≤‚ ‘”√
     public void TestDrawCard()
@@ -43,12 +44,18 @@ public class CardDeck : MonoBehaviour
         {
             if (drawDeck.Count == 0) //≥È≈∆∂—√ª”–≈∆
             {
-                //œ¥≈∆
+                foreach (var card_ in discardDeck)
+                {
+                    drawDeck.Add(card_);
+                }
+                ShuffleDeck();
             }
+            //≥È≥ˆ≥È≈∆∂—∂•≤øµƒ≈∆
             CardDataSO currentCardData = drawDeck[0];
             drawDeck.RemoveAt(0);
             var card = cardManager.GetCardObject().GetComponent<Card>();
             card.Init(currentCardData);
+
             card.transform.position = deckPosition;
 
             handCardObjectList.Add(card); 
@@ -82,5 +89,26 @@ public class CardDeck : MonoBehaviour
         
     }
 
-    
+    //œ¥≈∆∫Ø ˝
+    private void ShuffleDeck()
+    {
+
+        discardDeck.Clear();
+        for (int i = 0; i < drawDeck.Count; i++)
+        {
+            CardDataSO temp = drawDeck[i];
+            int randomIndex = Random.Range(i, drawDeck.Count);
+            drawDeck[i] = drawDeck[randomIndex];
+            drawDeck[randomIndex] = temp;
+        }
+    }
+
+    public void DiscardCard(Card discardCard)
+    {
+        discardDeck.Add(discardCard.cardData);
+        handCardObjectList.Remove(discardCard);
+        cardManager.DiscardCard(discardCard.gameObject);
+
+        SetCardLayout(0f);
+    }
 }
