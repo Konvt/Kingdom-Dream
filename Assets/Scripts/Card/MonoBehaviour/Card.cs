@@ -18,6 +18,10 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     public quaternion originalRotation;
     public int originalLayOrder;
 
+    [Header("广播")]
+    public ObjectEventSO discardCardEvent;
+
+
     public bool isAnimating;
     private void Start()
     {
@@ -66,5 +70,15 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         transform.position=originalPosition;
         transform.rotation = quaternion.identity;
         GetComponent<SortingGroup>().sortingOrder = originalLayOrder;
+    }
+
+    //打出卡牌的执行逻辑
+    public void EexcuteCardEffects(CharacterBase from , CharacterBase target)
+    {
+        foreach (var effect in cardData.effects)
+        {
+            effect.Excute(from, target);
+        }
+        discardCardEvent.RiseEvent(this, this);
     }
 }

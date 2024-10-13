@@ -102,9 +102,10 @@ public class CardDeck : MonoBehaviour
             drawDeck[randomIndex] = temp;
         }
     }
-
-    public void DiscardCard(Card discardCard)
+    //ÆúÅÆÂß¼­
+    public void DiscardCard(object card)
     {
+        Card discardCard = card as Card;
         discardDeck.Add(discardCard.cardData);
         handCardObjectList.Remove(discardCard);
         cardManager.DiscardCard(discardCard.gameObject);

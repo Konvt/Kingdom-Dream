@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -11,5 +13,6 @@ public class CardDataSO : ScriptableObject
     [TextArea]
     public string cardDescription;
 
-
+    //实际的执行效果
+    public List<Effect> effects;
 }

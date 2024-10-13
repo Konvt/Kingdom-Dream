@@ -32,3 +32,10 @@ public enum CardType
     Defense,
     Abilities,
 }
+
+public enum EffectTargetType
+{
+    Self, //自己
+    Target, //单体敌人类型
+    All , //群体类型
+}

@@ -17,3 +17,5 @@ MonoBehaviour:
   cost: 1
   cardType: 0
   cardDescription: attack <color="white">6</color> damage
+  effects:
+  - {fileID: 11400000, guid: 6da7693f93f44ea45aa84afb35e15a6f, type: 2}

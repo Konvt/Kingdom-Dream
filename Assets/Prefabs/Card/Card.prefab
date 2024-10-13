@@ -1154,6 +1154,7 @@ MonoBehaviour:
       z: 0
       w: 0
   originalLayOrder: 0
+  discardCardEvent: {fileID: 11400000, guid: c726b53162cc21542a63866da1c8ee27, type: 2}
   isAnimating: 0
 --- !u!114 &-3635580934611669745
 MonoBehaviour:
@@ -1171,6 +1172,8 @@ MonoBehaviour:
   canExecute: 0
   arrowPrefab: {fileID: 8606874066023644411, guid: e4c02ae90880fa948875c1bc573fce61, type: 3}
   currentArrow: {fileID: 0}
+  targetCharacter: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &8076366796511785280
 GameObject:
   m_ObjectHideFlags: 0
