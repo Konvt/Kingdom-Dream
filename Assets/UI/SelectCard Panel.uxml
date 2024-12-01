@@ -1,0 +1,9 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/TurnButton.uss?fileID=7433441132597879392&amp;guid=e803670e336710c46af809a85e41b8ab&amp;type=3#TurnButton" />
+    <engine:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.67);">
+        <engine:VisualElement name="Panel" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/UI%20Elements/CasltePanel.png?fileID=2800000&amp;guid=1786b13baa4564694856992ca7f5159f&amp;type=3#CasltePanel&quot;); -unity-background-scale-mode: scale-to-fit; position: absolute; width: 1200px; height: 730px; left: 360px; right: 360px; top: 105px;">
+            <engine:Button text="确认" name="ConfirmButton" parse-escape-sequences="true" emoji-fallback-support="false" class="turnButton" style="position: absolute; height: 117px; width: 213px; top: 581px; left: 507px; right: 507px; background-image: url(&quot;project://database/Assets/Art/UI%20Elements/btn_endturn.png?fileID=2800000&amp;guid=fbde03eb589af4d30b6371b9ea026ca4&amp;type=3#btn_endturn&quot;); -unity-background-scale-mode: scale-to-fit; background-color: rgba(188, 188, 188, 0); -unity-font-definition: resource(&apos;SmileySans-Oblique&apos;); font-size: 40px; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; -unity-text-align: middle-center;" />
+            <engine:VisualElement name="Container" style="flex-grow: 1; position: absolute; height: 373px; width: 1020px; top: 211px; left: 98px; flex-direction: row; justify-content: space-around; align-self: flex-end; align-items: auto;" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

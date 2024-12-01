@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardLibraryList:
   - cardData: {fileID: 11400000, guid: 778b99dbff23235448f3de5258dbe92c, type: 2}
-    amount: 3
+    amount: 5
   - cardData: {fileID: 11400000, guid: ab73b506b3fcd4d4293d6c02590ae06d, type: 2}
-    amount: 3
+    amount: 5
   - cardData: {fileID: 11400000, guid: 2c52bf09907d7b445b029bf7ae9c19fe, type: 2}
     amount: 3
+  - cardData: {fileID: 11400000, guid: ec31b387db9e42a419d1f4e92384c30c, type: 2}
+    amount: 2

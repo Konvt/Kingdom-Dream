@@ -1,0 +1,40 @@
+.unity-progress-bar__container {
+    height: 30px;
+    min-height: 30px;
+}
+
+.unity-progress-bar__progress {
+    height: 22px;
+    border-radius: 7px;
+    margin: 2px;
+    background-color: rgb(52, 235, 52);
+
+    transition : right 0.5s ease-out-circ,background-color 0.5s ease-out-circ;
+}
+
+.unity-progress-bar__background {
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 7px;
+    height: 30px;
+    border-color:black;
+    border-width:2px;
+}
+
+.highHealth .unity-progress-bar__progress {
+    height: 22px;
+    border-radius: 7px;
+    margin: 2px;
+    background-color: rgb(52, 235, 52);
+
+    transition : right 0.5s ease-out-circ;
+}
+.mediumHealth .unity-progress-bar__progress {
+    background-color: rgb(255, 241, 40);
+
+}
+.lowHealth .unity-progress-bar__progress {
+
+    background-color: rgb(182,4,4);
+
+}

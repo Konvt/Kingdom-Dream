@@ -18,11 +18,20 @@ public class CardDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     {
         currentCard = GetComponent<Card>();
 
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterBase>();
     }
+
+    private void OndisAable()
+    {
+        canMove = false;
+        canExecute = false;
+    }
+
     //开始拖拽的逻辑
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if(player==null) player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterBase>();
+
+        if (!currentCard.isAvailable) return;
         switch (currentCard.cardData.cardType)
         {
             //攻击生成攻击箭头
@@ -39,6 +48,8 @@ public class CardDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     //处理拖拽中的逻辑
     public void OnDrag(PointerEventData eventData)
     {
+        if (!currentCard.isAvailable) return;
+
         if (canMove)//如何卡牌可以被移动，更新卡牌的实时坐标
         {
             currentCard.isAnimating = true;
@@ -70,7 +81,9 @@ public class CardDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     //拖拽结束逻辑
     public void OnEndDrag(PointerEventData eventData)
     {
-        if(currentArrow!=null) Destroy(currentArrow);
+        if (!currentCard.isAvailable) return;
+
+        if (currentArrow!=null) Destroy(currentArrow);
 
         if (canExecute)
         {

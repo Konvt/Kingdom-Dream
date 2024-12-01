@@ -16,4 +16,6 @@ MonoBehaviour:
   cardImage: {fileID: 21300000, guid: 7cdfac7a7246d274c8b983fd664158c9, type: 3}
   cost: 1
   cardType: 1
-  cardDescription: attain <color="white">6</color> defense
+  cardDescription: "\u83B7\u5F97<color=\"white\">6</color> \u9632\u5FA1"
+  effects:
+  - {fileID: 11400000, guid: 75f76f844a1954a4d8849519448df0c5, type: 2}

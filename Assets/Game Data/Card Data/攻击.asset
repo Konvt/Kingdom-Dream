@@ -16,6 +16,6 @@ MonoBehaviour:
   cardImage: {fileID: 21300000, guid: 28a02df1369b7fd4eab040459b0cc450, type: 3}
   cost: 1
   cardType: 0
-  cardDescription: attack <color="white">6</color> damage
+  cardDescription: "\u9020\u6210 <color=\"white\">6</color> \u4F24\u5BB3"
   effects:
   - {fileID: 11400000, guid: 6da7693f93f44ea45aa84afb35e15a6f, type: 2}

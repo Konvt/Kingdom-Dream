@@ -1,8 +1,5 @@
-using NUnit.Framework;
 using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class CardLayoutManager : MonoBehaviour
 {

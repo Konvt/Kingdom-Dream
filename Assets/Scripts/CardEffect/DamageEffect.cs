@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 [CreateAssetMenu(fileName ="DamageEffect",menuName ="Effects/DamageEffect")]
@@ -11,8 +12,8 @@ public class DamageEffect :Effect
             case EffectTargetType.Self:
                 break;
             case EffectTargetType.Target:
-                Target.TakeDamage(value);
-                Debug.Log("造成了："+value+" 点伤害");
+                var damage = (int)math.round(from.baseStrength * value);
+                Target.TakeDamage(damage);
                 break;
             case EffectTargetType.All:
                 //群体逻辑

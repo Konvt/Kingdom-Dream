@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fdaf207e52f03f4cbe0a29cd9d816b7, type: 3}
+  m_Name: MinorEnemy
+  m_EditorClassIdentifier: 
+  actions:
+  - sprite: {fileID: 21300000, guid: da70c76bea5c848d68d7f0f872362fda, type: 3}
+    effect: {fileID: 11400000, guid: 3a871a5dc8257594f9fefd1789c39b90, type: 2}
+  - sprite: {fileID: 21300000, guid: 152f37433d7b19e4b8390fea388d2996, type: 3}
+    effect: {fileID: 11400000, guid: 2b8bda7c5ea54134abcf29109593ea7f, type: 2}
+  - sprite: {fileID: 21300000, guid: 98d622e3aaa3e464a933a2720153fdae, type: 3}
+    effect: {fileID: 11400000, guid: 15835f0e74f20b541a9854aa87ae3683, type: 2}
+  - sprite: {fileID: 21300000, guid: da70c76bea5c848d68d7f0f872362fda, type: 3}
+    effect: {fileID: 11400000, guid: 46814f03a66f0834a8bad26bddd81206, type: 2}

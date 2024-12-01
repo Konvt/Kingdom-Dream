@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using DG.Tweening;
-
+//管理抽牌弃牌洗牌
 public class CardDeck : MonoBehaviour
 {
     public CardManager cardManager;
@@ -14,10 +14,12 @@ public class CardDeck : MonoBehaviour
     public Vector3 deckPosition; //抽牌动画起始的位置
 
     //测试用
+    [Header("事件广播")]
+    public IntEventSO drawCountEvent;
+    public IntEventSO discardCountEvent;
     private void Start()
     {
         InitializeDeck();
-        DrawCard(3);
     }
     public void InitializeDeck()
     {
@@ -37,8 +39,13 @@ public class CardDeck : MonoBehaviour
     {
         DrawCard(1);
     }
+
+    public void NewTurnDrawCards()
+    {
+        DrawCard(4);
+    }
     //实现抽牌
-    private void DrawCard(int amount)  
+    public void DrawCard(int amount)  
     {
         for (int i = 0; i < amount; i++)
         {
@@ -53,6 +60,8 @@ public class CardDeck : MonoBehaviour
             //抽出抽牌堆顶部的牌
             CardDataSO currentCardData = drawDeck[0];
             drawDeck.RemoveAt(0);
+
+            drawCountEvent.RiseEvent(drawDeck.Count, this);
             var card = cardManager.GetCardObject().GetComponent<Card>();
             card.Init(currentCardData);
 
@@ -64,6 +73,7 @@ public class CardDeck : MonoBehaviour
 
             SetCardLayout(delay);
 
+
         }
     }
     private void SetCardLayout(float delay) //设置卡牌布局
@@ -74,6 +84,7 @@ public class CardDeck : MonoBehaviour
             Card currentCard = handCardObjectList[i];
             CardTransform cardTransform= cardLayoutManager.GetCardTransform(i, handCardObjectList.Count);
 
+            currentCard.UpdateCardState(); 
             //抽牌动画
             currentCard.isAnimating = true;
             currentCard.transform.DOScale(Vector3.one,0.5f).SetDelay(delay).onComplete=()=> {
@@ -94,6 +105,8 @@ public class CardDeck : MonoBehaviour
     {
 
         discardDeck.Clear();
+        drawCountEvent.RiseEvent(drawDeck.Count, this);
+        discardCountEvent.RiseEvent(discardDeck.Count, this);
         for (int i = 0; i < drawDeck.Count; i++)
         {
             CardDataSO temp = drawDeck[i];
@@ -101,6 +114,7 @@ public class CardDeck : MonoBehaviour
             drawDeck[i] = drawDeck[randomIndex];
             drawDeck[randomIndex] = temp;
         }
+        
     }
     //弃牌逻辑
     public void DiscardCard(object card)
@@ -109,7 +123,30 @@ public class CardDeck : MonoBehaviour
         discardDeck.Add(discardCard.cardData);
         handCardObjectList.Remove(discardCard);
         cardManager.DiscardCard(discardCard.gameObject);
-
+        discardCountEvent.RiseEvent(discardDeck.Count, this);
         SetCardLayout(0f);
+    }
+
+    public void OnPlayerTurnEnd()
+    {
+        for (int i = 0; i< handCardObjectList.Count; i++)
+        {
+            discardDeck.Add(handCardObjectList[i].cardData);
+            cardManager.DiscardCard(handCardObjectList[i].gameObject);
+            
+        }
+
+        handCardObjectList.Clear();
+        discardCountEvent.RiseEvent(discardDeck.Count, this);
+    }
+
+    public void RealeaseAllCards(object obj)
+    {
+        foreach (var card in handCardObjectList)
+        {
+            cardManager.DiscardCard(card.gameObject);
+        }
+        handCardObjectList.Clear();
+        InitializeDeck();
     }
 }

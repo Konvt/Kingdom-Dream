@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -6,17 +7,29 @@ using UnityEngine.SceneManagement;
 //用于管理场景加载
 public class SceneLoadManager : MonoBehaviour 
 {
+    public FadePanel fadePanel;
+
     public AssetReference Map; //获取地图场景资源
     public AssetReference currentScene; //保存当前场景
+    public AssetReference start; //开始场景
+
     [Header("广播")]
     public ObjectEventSO afterRoomLoadedEvent;
+    public ObjectEventSO updateRoomEvent;
 
     private Vector2Int currentRoomVector;
+
+    Room currentRoom;
+    private void Awake()
+    { 
+        currentRoomVector =Vector2Int.one *-1;
+        LoadStartMenu();
+    }
     public async void OnLoadRoomEvent(object data)
     {
         if (data is Room)
         {
-            var currentRoom = data as Room;
+            currentRoom = data as Room;
 
             var currentData = currentRoom.roomData;
 
@@ -30,7 +43,8 @@ public class SceneLoadManager : MonoBehaviour
 
         await LoadSceneTask();
 
-        afterRoomLoadedEvent.RiseEvent(currentRoomVector, this);
+        afterRoomLoadedEvent.RiseEvent(currentRoom, this);
+       
 
     }
 
@@ -43,6 +57,7 @@ public class SceneLoadManager : MonoBehaviour
 
         if (s.Status == AsyncOperationStatus.Succeeded)
         {
+            fadePanel.FadeOut(0.3f);
             SceneManager.SetActiveScene(s.Result.Scene);
         }
 
@@ -51,14 +66,32 @@ public class SceneLoadManager : MonoBehaviour
 
     private async Awaitable UnloadSceneTask()
     {
-        await SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+        fadePanel.FadeIn(0.4f);
+        await Awaitable.WaitForSecondsAsync(0.4f);
+        await Awaitable.FromAsyncOperation( SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene()));
     }
     //异步操作加载地图场景
     public async void LoadMap()
     {
         await UnloadSceneTask();
 
+        
+        if(currentRoomVector!=Vector2.one*-1) updateRoomEvent.RiseEvent(currentRoomVector, this);
+
         currentScene = Map;
+
+        await LoadSceneTask();
+    }
+
+    public async void LoadStartMenu()
+    {
+        if (currentScene.IsValid())
+        {
+            await UnloadSceneTask();
+
+        }
+
+        currentScene = start;
 
         await LoadSceneTask();
     }

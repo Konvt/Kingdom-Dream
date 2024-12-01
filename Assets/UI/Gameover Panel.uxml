@@ -1,0 +1,9 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/TurnButton.uss?fileID=7433441132597879392&amp;guid=e803670e336710c46af809a85e41b8ab&amp;type=3#TurnButton" />
+    <engine:VisualElement style="flex-grow: 1; color: rgba(27, 27, 27, 0.53); background-color: rgba(41, 41, 41, 0.8); -unity-background-image-tint-color: rgba(0, 0, 0, 0.61); height: 1049px; width: 1940px;">
+        <engine:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; height: 666px; width: 704px; top: 320px; left: 600px; right: 547px;">
+            <engine:Label text="梦该醒了！" style="height: 246px; width: 787px; -unity-font-definition: resource(&apos;SmileySans-Oblique&apos;); font-size: 150px; color: rgb(255, 255, 255); -unity-text-align: middle-center;" />
+            <engine:Button text="醒来" name="BakcToStartButton" double-click-selects-word="false" class="turnButton" style="background-image: url(&quot;project://database/Assets/Art/UI%20Elements/Button.png?fileID=2800000&amp;guid=1547f1fe317e34067b4317cb769df353&amp;type=3#Button&quot;); -unity-background-scale-mode: scale-to-fit; background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; height: 128px; width: 700px; color: rgba(70, 33, 60, 0.78); font-size: -8px; -unity-font-definition: resource(&apos;SmileySans-Oblique&apos;);" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

@@ -14,7 +14,7 @@ public class IntVariable : ScriptableObject
     public void SetValue(int value)
     {
         currentValue = value;
-        valueChangedEvent.RiseEvent(value,this);
+        valueChangedEvent?.RiseEvent(value,this);
     }
 }
 

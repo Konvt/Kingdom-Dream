@@ -1,4 +1,3 @@
-using UnityEditor.TerrainTools;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,6 +13,7 @@ public class BaseEventSO<T> : ScriptableObject //本地持久化场景事件
     public void RiseEvent(T value,object sender) //发起事件，由事件发起者调用
     {
         OnEventRised?.Invoke(value);
+        if(sender!=null)
         lastSender = sender.ToString();
     }
 
