@@ -21,3 +21,4 @@ MonoBehaviour:
     amount: 3
   - cardData: {fileID: 11400000, guid: ec31b387db9e42a419d1f4e92384c30c, type: 2}
     amount: 2
+  description: "\u8FD9\u4E2A\u662F\u6E38\u620F\u65B0\u5F00\u59CB\u7684\u9ED8\u8BA4\u724C\u5E93"

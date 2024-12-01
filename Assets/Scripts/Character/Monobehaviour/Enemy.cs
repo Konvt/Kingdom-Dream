@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Enemy :CharacterBase
 {
+    [Header("³öÕÐ±í")]
     public EnemyActionDataSO actionDataSO;
 
     public EnemyAction currentAction;

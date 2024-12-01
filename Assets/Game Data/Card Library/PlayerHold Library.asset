@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: PlayerHold Library
   m_EditorClassIdentifier: 
   cardLibraryList: []
+  description: "\u8FD9\u4E2A\u662F\u5F53\u524D\u6E38\u620F\u73A9\u5BB6\u7684\u724C\u5E93"

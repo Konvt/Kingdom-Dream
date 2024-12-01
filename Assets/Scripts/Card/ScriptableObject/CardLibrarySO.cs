@@ -3,9 +3,12 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "CardLibrarySO",menuName = "Card/CardLibrarySO")]
 //¿¨ÅÆ¿âÊý¾Ý
+
 public class CardLibrarySO : ScriptableObject
 {
-    public List<CardLibraryEntry> cardLibraryList; 
+    public List<CardLibraryEntry> cardLibraryList;
+
+    [TextArea] public string description;
 }
 
 [System.Serializable]
