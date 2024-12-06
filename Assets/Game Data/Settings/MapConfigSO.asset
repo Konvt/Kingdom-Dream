@@ -18,16 +18,16 @@ MonoBehaviour:
     roomType: 1
   - min: 3
     max: 4
-    roomType: 11
-  - min: 3
-    max: 4
-    roomType: 22
+    roomType: 3
   - min: 3
     max: 4
     roomType: 10
   - min: 3
     max: 4
-    roomType: 6
+    roomType: 11
+  - min: 3
+    max: 4
+    roomType: 3
   - min: 3
     max: 4
     roomType: 26

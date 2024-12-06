@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 //[DefaultExecutionOrder(-100)]
@@ -11,10 +12,12 @@ public class GamePlayPanel : MonoBehaviour
 
     private Button endTurnButton;
 
-
+    private AudioSender audioSender;
 
     [Header("ÊÂ¼þ¹ã²¥")]
     public ObjectEventSO playerTurnEndEvnet;
+
+    public List<AudioClip> audioClips;
     private void Awake()
     {
 
@@ -23,7 +26,7 @@ public class GamePlayPanel : MonoBehaviour
     {
         rootElement = GetComponent<UIDocument>().rootVisualElement;
 
-
+        audioSender = GetComponent<AudioSender>();
 
         energyAmountLabel = rootElement.Q<Label>("EnergyAmount");
 
@@ -44,6 +47,8 @@ public class GamePlayPanel : MonoBehaviour
     private void OnEndTurnButtonClicked()
     {
         playerTurnEndEvnet.RiseEvent(this, null);
+        audioSender.Play(audioClips[0]);
+
     }
 
     public void UpdateDrawDeckAmount(int amount)

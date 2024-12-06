@@ -6,9 +6,15 @@ public class HealEffect : Effect
 {
     public override void Excute(CharacterBase from, CharacterBase target)
     {
-        if(targetType==EffectTargetType.Self)
-        from.Heal(value);
-        else if(targetType==EffectTargetType.Target)
-        target.Heal(value);
+        if (targetType == EffectTargetType.Self)
+        {
+            from.Heal(value);
+        }
+
+        else if (targetType == EffectTargetType.Target)
+        {
+            target.Heal(value);
+        }
+        AudioPlayer.instance.PlayVFX(soumdVFX);
     }
 }

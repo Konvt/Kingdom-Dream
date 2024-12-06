@@ -1,0 +1,8 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:VisualElement style="flex-grow: 1;">
+        <engine:VisualElement picking-mode="Ignore" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/Card/card_description.png?fileID=2800000&amp;guid=39bf9720d47254a86a9fb8917a88a58e&amp;type=3#card_description&quot;); -unity-background-scale-mode: scale-to-fit; position: absolute; height: 146px; width: 731px; top: -2px; left: 589px;">
+            <engine:Label text="阶段" style="position: absolute; top: 34px; left: 264px; height: 58px; width: 87px; -unity-text-align: upper-center; -unity-font-definition: resource(&apos;SmileySans-Oblique&apos;); color: rgb(255, 255, 255); font-size: 60px;" />
+            <engine:Label text="1" parse-escape-sequences="true" name="StageNumber" style="position: absolute; top: 26px; left: 384px; height: 58px; width: 87px; -unity-text-align: upper-center; -unity-font-definition: resource(&apos;SmileySans-Oblique&apos;); color: rgb(255, 255, 255); font-size: 70px;" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

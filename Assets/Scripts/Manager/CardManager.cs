@@ -86,15 +86,22 @@ public class CardManager : MonoBehaviour
             cardData = newCardData,
             amount = 1,
         };
-
-        if (currentCardLibrary.cardLibraryList.Contains(newCard))
+        bool flag = false;
+        for (int i = 0; i < currentCardLibrary.cardLibraryList.Count; i++)
         {
-
-            var target =  currentCardLibrary.cardLibraryList.Find(t => t.cardData == newCardData);
-            target.amount++;
-
+            if (currentCardLibrary.cardLibraryList[i].cardData.cardName == newCardData.cardName)
+            {
+                var updateCard = new CardLibraryEntry
+                {
+                    cardData = newCardData,
+                    amount = currentCardLibrary.cardLibraryList[i].amount+1,
+                };
+                currentCardLibrary.cardLibraryList[i] = updateCard;
+                flag = true;
+                break;
+            }
         }
-        else currentCardLibrary.cardLibraryList.Add(newCard);
+        if(!flag) currentCardLibrary.cardLibraryList.Add(newCard);
 
     }
 }

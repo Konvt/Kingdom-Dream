@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e04409058cde9c49993b7189123acf9, type: 3}
   m_Name: Normal Defense
   m_EditorClassIdentifier: 
-  value: 10
+  value: 5
   targetType: 0

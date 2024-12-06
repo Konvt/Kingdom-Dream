@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy :CharacterBase
@@ -8,6 +10,8 @@ public class Enemy :CharacterBase
 
     public EnemyAction currentAction;
 
+
+
     protected Player player;
 
     protected override void Awake()
@@ -15,10 +19,12 @@ public class Enemy :CharacterBase
         base.Awake();
     }
 
+ 
     public virtual void OnPlayerTurnBegin()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
+        //玩家回合时，随机挑选一个招式
         int randomActionIndex = Random.Range(0, actionDataSO.actions.Count);
         currentAction = actionDataSO.actions[randomActionIndex];
     }

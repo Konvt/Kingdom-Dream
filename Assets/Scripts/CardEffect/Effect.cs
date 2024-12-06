@@ -9,6 +9,10 @@ public abstract class Effect :ScriptableObject
 
     public EffectTargetType targetType;
 
+    [Header("效果的释放音效")]
+
+    public AudioClip soumdVFX;
+
 
     public abstract void Excute(CharacterBase from , CharacterBase Target);
 }

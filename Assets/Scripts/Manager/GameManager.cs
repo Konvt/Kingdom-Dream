@@ -12,6 +12,17 @@ public class GameManager : MonoBehaviour
     [Header("事件广播")]
     public ObjectEventSO gameWinEvent;
     public ObjectEventSO gameoverEvent;
+    public ObjectEventSO loadMapEvent;
+
+    [Header("游戏阶段")]
+    public IntVariable gameStage;
+
+    private void Awake()
+    {
+        gameStage.SetValue(1);
+        aliveEnemyList.Clear();
+    }
+
     public void UpdateMaplayoutData(object value) //处理进入房间后房间状态的逻辑,保存地图数据
     {
 
@@ -48,11 +59,11 @@ public class GameManager : MonoBehaviour
     {
         if (character is Player)
         {
-
             StartCoroutine(EventDelayAction(gameoverEvent));
         }
         else if (character is Boss)
         {
+            aliveEnemyList.Remove(character as Boss);
             StartCoroutine(EventDelayAction(gameoverEvent));
         }
         else if (character is Enemy)
@@ -86,5 +97,21 @@ public class GameManager : MonoBehaviour
     {
         mapLayoutSO.linePositionList.Clear();
         mapLayoutSO.mapRoomDataList.Clear();
+        gameStage.SetValue(1);
+    }
+    public void GameStageUpgrade()
+    {
+        int temp = gameStage.currentValue;
+        temp++;
+        gameStage.SetValue(temp);
+    }
+    public void StartNextGameStage()
+    {
+        aliveEnemyList.Clear();
+        int curStage = gameStage.currentValue;
+        NewGame();
+        gameStage.SetValue(curStage);
+        GameStageUpgrade();
+        loadMapEvent.RiseEvent(null, this);
     }
 }

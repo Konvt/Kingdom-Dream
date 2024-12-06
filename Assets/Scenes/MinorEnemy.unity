@@ -129,6 +129,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1664304575}
   - component: {fileID: 1664304574}
+  - component: {fileID: 1664304577}
+  - component: {fileID: 1664304576}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -206,6 +208,49 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1664304576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664304573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c6a3ad4e863984384d937b6fffd2df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSO: {fileID: 11400000, guid: 1d6d23b48fdcd54459111261ed46ee57, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1664304577}
+        m_TargetAssemblyTypeName: AudioSender, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1664304577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664304573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0060d44c933f0d34dbaa255b6ec6ac86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: c56e0d77de5fee04d96e169e0a628c09, type: 3}
+  isBgm: 1
+  description: 
 --- !u!1001 &1027476278883912019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -214,6 +259,58 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5811147568217707169, guid: 1d0b7043806b71f40ab118f9b679783e, type: 3}
+      propertyPath: isDead
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811147568217707169, guid: 1d0b7043806b71f40ab118f9b679783e, type: 3}
+      propertyPath: gameStage
+      value: 
+      objectReference: {fileID: 11400000, guid: c44bdf49f107be24c830fa93eed36c9f, type: 2}
+    - target: {fileID: 5811147568217707169, guid: 1d0b7043806b71f40ab118f9b679783e, type: 3}
+      propertyPath: perStageHp.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811147568217707169, guid: 1d0b7043806b71f40ab118f9b679783e, type: 3}
+      propertyPath: 'perStageHp.Array.data[0]'
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811147568217707169, guid: 1d0b7043806b71f40ab118f9b679783e, type: 3}
+      propertyPath: 'perStageHp.Array.data[1]'
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811147568217707169, guid: 1d0b7043806b71f40ab118f9b679783e, type: 3}
+      propertyPath: 'perStageHp.Array.data[2]'
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811147568217707169, guid: 1d0b7043806b71f40ab118f9b679783e, type: 3}
+      propertyPath: 'perStageHp.Array.data[3]'
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811147568217707169, guid: 1d0b7043806b71f40ab118f9b679783e, type: 3}
+      propertyPath: 'perStageHp.Array.data[4]'
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811147568217707169, guid: 1d0b7043806b71f40ab118f9b679783e, type: 3}
+      propertyPath: 'perStageHp.Array.data[5]'
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811147568217707169, guid: 1d0b7043806b71f40ab118f9b679783e, type: 3}
+      propertyPath: 'perStageHp.Array.data[6]'
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811147568217707169, guid: 1d0b7043806b71f40ab118f9b679783e, type: 3}
+      propertyPath: 'perStageHp.Array.data[7]'
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811147568217707169, guid: 1d0b7043806b71f40ab118f9b679783e, type: 3}
+      propertyPath: 'perStageHp.Array.data[8]'
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811147568217707169, guid: 1d0b7043806b71f40ab118f9b679783e, type: 3}
+      propertyPath: 'perStageHp.Array.data[9]'
+      value: 140
+      objectReference: {fileID: 0}
     - target: {fileID: 6579599942644116450, guid: 1d0b7043806b71f40ab118f9b679783e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.95
@@ -257,6 +354,10 @@ PrefabInstance:
     - target: {fileID: 8443256276010403864, guid: 1d0b7043806b71f40ab118f9b679783e, type: 3}
       propertyPath: m_Name
       value: MinorEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443256276010403864, guid: 1d0b7043806b71f40ab118f9b679783e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8725385722880242049, guid: 1d0b7043806b71f40ab118f9b679783e, type: 3}
       propertyPath: m_Mesh

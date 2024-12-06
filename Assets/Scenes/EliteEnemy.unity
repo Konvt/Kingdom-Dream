@@ -350,6 +350,7 @@ GameObject:
   - component: {fileID: 485078411}
   - component: {fileID: 485078410}
   - component: {fileID: 485078418}
+  - component: {fileID: 485078419}
   m_Layer: 7
   m_Name: MinorEnemy
   m_TagString: Enemy
@@ -471,9 +472,14 @@ MonoBehaviour:
   strengthRound: {fileID: 11400000, guid: 3399ed5724b48f541a061e25106e9a23, type: 2}
   buffVFX: {fileID: 1657535172}
   debuffVFX: {fileID: 1414838018}
+  gameStage: {fileID: 11400000, guid: c44bdf49f107be24c830fa93eed36c9f, type: 2}
+  perStageHp: 3c00000046000000500000005a000000640000006e00000078000000820000008c00000096000000
   isDead: 0
   baseStrength: 1
   characterDeadEvnet: {fileID: 11400000, guid: 0c410ef5b2b360641818199d29a3d1c8, type: 2}
+  audioClipList:
+  - {fileID: 8300000, guid: 8e3cd614775471a48a82b46e1a993518, type: 3}
+  - {fileID: 8300000, guid: 8bbd303986b687c42b7d27bbfcfb5a5c, type: 3}
   actionDataSO: {fileID: 11400000, guid: 85e7d775a0d80a445a29db737b12a7c7, type: 2}
   currentAction:
     sprite: {fileID: 0}
@@ -604,6 +610,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &485078419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485078409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0060d44c933f0d34dbaa255b6ec6ac86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 0}
+  isBgm: 0
+  description: 
 --- !u!1 &1120015143
 GameObject:
   m_ObjectHideFlags: 0

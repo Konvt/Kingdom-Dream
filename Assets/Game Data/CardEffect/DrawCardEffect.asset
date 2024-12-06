@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 2
   targetType: 0
+  soumdVFX: {fileID: 0}
   drawCardEvnet: {fileID: 11400000, guid: 75baead399cd8214a9b7452089a3550d, type: 2}

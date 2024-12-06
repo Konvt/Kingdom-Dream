@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterBase : MonoBehaviour
@@ -14,6 +15,13 @@ public class CharacterBase : MonoBehaviour
     public GameObject buffVFX;
     public GameObject debuffVFX;
 
+    [Header("游戏阶段")]
+    public IntVariable gameStage;
+
+    [Header("阶段对应血量")]
+    public List<int> perStageHp;
+
+    private AudioSender audioSender;
     public int CurrentHp { get => hp.currentValue; set=>hp.SetValue(value);  }
 
     public int MaxHp { get => hp.maxValue; }
@@ -27,15 +35,18 @@ public class CharacterBase : MonoBehaviour
 
     [Header("广播")]
     public ObjectEventSO characterDeadEvnet;
-
+    [Header("音效")]
+    public List<AudioClip> audioClipList;
     protected virtual  void Awake()
     {
         animator = GetComponentInChildren<Animator>();
+        audioSender = GetComponentInChildren<AudioSender>();
     }
 
     protected virtual void Start()
     {
         isDead = false;
+        if(gameObject.tag!="Player") maxHp = perStageHp[gameStage.currentValue-1]; //游戏阶段默认1开始
         hp.maxValue = maxHp;
         CurrentHp = maxHp;
         ResetDefense();
@@ -56,12 +67,14 @@ public class CharacterBase : MonoBehaviour
         {
             CurrentHp -= currentDamage;
             animator.SetTrigger("hit");
+            audioSender.Play(audioClipList[0]);
         }
         else
         {
             //死亡逻辑
             CurrentHp = 0;
             isDead = true;
+            audioSender.Play(audioClipList[1]);
             characterDeadEvnet.RiseEvent(this, this);
         }
     }

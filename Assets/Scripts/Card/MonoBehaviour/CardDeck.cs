@@ -42,7 +42,7 @@ public class CardDeck : MonoBehaviour
 
     public void NewTurnDrawCards()
     {
-        DrawCard(4);
+        DrawCard(5);
     }
     // µœ÷≥È≈∆
     public void DrawCard(int amount)  
