@@ -90,9 +90,16 @@ public class CharacterBase : MonoBehaviour
     }
     public void Heal(int amount)
     {
-        var currentHP = Mathf.Min(CurrentHp + amount, maxHp);
-        CurrentHp = currentHP;
-        buffVFX.SetActive(true);
+        if (amount > 0)
+        {
+            var currentHP = Mathf.Min(CurrentHp + amount, maxHp);
+            CurrentHp = currentHP;
+            buffVFX.SetActive(true);
+        }
+        else
+        {
+            TakeDamage(-amount);
+        }
     }
 
     public void SetUpStrength(int round , bool isPositive)

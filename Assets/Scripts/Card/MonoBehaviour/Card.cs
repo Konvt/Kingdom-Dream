@@ -9,7 +9,7 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     [Header("组件")] 
     public SpriteRenderer cardSprite; 
 
-    public TextMeshPro costText, descriptionText, typeText;
+    public TextMeshPro costText, descriptionText, typeText,nameText;
 
     public CardDataSO cardData;
 
@@ -38,7 +38,8 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         cardSprite.sprite = data.cardImage;
         costText.text = data.cost.ToString();
         descriptionText.text =data.cardDescription;
-        typeText.text = data.cardType switch //unity自带字体不支持中文，需要下载字体支持中文
+        nameText.text =data.cardName;
+        typeText.text = data.cardType switch 
         {
             CardType.Attack => "攻击",
             CardType.Defense => "防御",

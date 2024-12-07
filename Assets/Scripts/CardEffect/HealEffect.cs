@@ -11,10 +11,11 @@ public class HealEffect : Effect
             from.Heal(value);
         }
 
-        else if (targetType == EffectTargetType.Target)
+        else if (targetType == EffectTargetType.Target) //给其他人回血，敌人可能用
         {
             target.Heal(value);
         }
+        if(soumdVFX!=null)
         AudioPlayer.instance.PlayVFX(soumdVFX);
     }
 }

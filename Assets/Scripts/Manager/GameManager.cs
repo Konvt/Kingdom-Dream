@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         gameStage.SetValue(1);
-        aliveEnemyList.Clear();
+       
     }
 
     public void UpdateMaplayoutData(object value) //处理进入房间后房间状态的逻辑,保存地图数据
@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
 
     public void OnRoomLoadedEvent() //房间加载完成后找到所有敌人
     {
+        aliveEnemyList.Clear();
         var enimies = FindObjectsByType<Enemy>(FindObjectsInactive.Include,FindObjectsSortMode.None);
 
         foreach (var enemy in enimies) aliveEnemyList.Add(enemy);

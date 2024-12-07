@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using System.Collections.Generic;
 
 public class AudioPlayer : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class AudioPlayer : MonoBehaviour
     public static AudioPlayer instance;
 
     public AudioSource backGroundPlayer;
-    public  AudioSource VFXPlayer;
+    public  List<AudioSource> VFXPlayers;
 
     private AudioClip currentBackground;
     private AudioClip curVFX;
@@ -31,9 +32,14 @@ public class AudioPlayer : MonoBehaviour
     {
         curVFX = clip;
 
-        VFXPlayer.clip = clip;
-
-        VFXPlayer.Play();
+        for (int i = 0; i < VFXPlayers.Count; i++)
+        {
+            if (!VFXPlayers[i].isPlaying)
+            {
+                VFXPlayers[i].clip = clip;
+                VFXPlayers[i].Play();
+            }
+        }
     }
     public void PlayBackgroundMusic(AudioClip clip)
     {
