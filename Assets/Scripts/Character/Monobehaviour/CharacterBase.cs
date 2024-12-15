@@ -119,6 +119,7 @@ public class CharacterBase : MonoBehaviour
         var currentRound = strengthRound.currentValue + round;
         if (baseStrength == 1) strengthRound.SetValue(0); //可以用一张牌抵消全部的负面回合
         else strengthRound.SetValue(currentRound);
+        GetComponent<HealthBarController>().SetIntendElement();
     }
 
     public void UpdateStrength()
