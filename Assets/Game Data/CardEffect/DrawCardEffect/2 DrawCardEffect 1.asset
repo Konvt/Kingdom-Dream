@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37756bd511a0b454ea8b7e7f9a4cae11, type: 3}
+  m_Name: 2 DrawCardEffect 1
+  m_EditorClassIdentifier: 
+  value: 2
+  targetType: 0
+  soumdVFX: {fileID: 0}
+  drawCardEvnet: {fileID: 11400000, guid: 75baead399cd8214a9b7452089a3550d, type: 2}
