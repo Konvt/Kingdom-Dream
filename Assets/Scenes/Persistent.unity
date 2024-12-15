@@ -1527,6 +1527,72 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backToStartEvent: {fileID: 11400000, guid: d933cb170396ba341810d6e88cc76a76, type: 2}
   startNextStageEvnet: {fileID: 11400000, guid: 6c3544c8149784d4abfd1f12fe96eb6a, type: 2}
+--- !u!1 &655164559
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 655164563}
+  - component: {fileID: 655164562}
+  - component: {fileID: 655164561}
+  m_Layer: 0
+  m_Name: EndlessGame Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &655164561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655164559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98cdbb70d1fbb784cac61e661a21dad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backToMapEvent: {fileID: 11400000, guid: 9e3429056869c8a4085f6da6c49a385b, type: 2}
+  selectCardEvent: {fileID: 11400000, guid: 74572763156f95846a8ce302e5c8a6e2, type: 2}
+--- !u!114 &655164562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655164559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: c97f8db6d6c318145addd4c202d3eea5, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 84080b3e3031348408db7ef65b7981c4, type: 3}
+  m_SortingOrder: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+--- !u!4 &655164563
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655164559}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &660543359
 GameObject:
   m_ObjectHideFlags: 0
@@ -3612,6 +3678,7 @@ SceneRoots:
   - {fileID: 1707000159}
   - {fileID: 1447975039}
   - {fileID: 469538542}
+  - {fileID: 655164563}
   - {fileID: 1486396584}
   - {fileID: 580635961}
   - {fileID: 660543360}
