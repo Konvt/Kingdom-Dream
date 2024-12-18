@@ -12,11 +12,12 @@ public class EndlessGameChooseGainPanel : MonoBehaviour
     private Button addHPButton;
     private Button discardCardBotton;
 
-    [Header("�¼��㲥")]
+    [Header("事件广播")]
     public ObjectEventSO addCostLimitEvent;
     public ObjectEventSO selectCardEvent;
     public ObjectEventSO addHPEvent;
     public ObjectEventSO discardCardEvent;
+    public ObjectEventSO closeGainPanel;
     private void OnEnable()
     {
         rootElement = GetComponent<UIDocument>().rootVisualElement;
@@ -37,21 +38,29 @@ public class EndlessGameChooseGainPanel : MonoBehaviour
     private void OnSelectCardButtonclicked()
     {
         selectCardEvent.RiseEvent(null, this);
+        closeGainPanel.RiseEvent(null, this);
     }
 
     private void OnAddCostLimitButtonclicked()
     {
         addCostLimitEvent.RiseEvent(null, this);
+        closeGainPanel.RiseEvent(null, this);
+
     }
 
-        private void OnAddHPButtonclicked()
+    private void OnAddHPButtonclicked()
     {
+
         addHPEvent.RiseEvent(null, this);
+        closeGainPanel.RiseEvent(null, this);
+
     }
 
     private void OnDiscardCardButtonclicked()
     {
         discardCardEvent.RiseEvent(null, this);
+        closeGainPanel.RiseEvent(null, this);
+
     }
 
 }

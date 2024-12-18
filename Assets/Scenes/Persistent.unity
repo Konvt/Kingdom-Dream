@@ -137,6 +137,8 @@ GameObject:
   - component: {fileID: 85241639}
   - component: {fileID: 85241640}
   - component: {fileID: 85241641}
+  - component: {fileID: 85241642}
+  - component: {fileID: 85241643}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -209,11 +211,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 60
+  JumpTurn: 0
+  CannotBeAttack: 0
+  delaydefence: 0
   hp: {fileID: 11400000, guid: 161d258c2a1c47a48b96b1ea05878d83, type: 2}
   defense: {fileID: 11400000, guid: 2f15381bd1d76894ca61abcd8f1a056d, type: 2}
   strengthRound: {fileID: 11400000, guid: c06b15d2e90ae604481fcd4359530cec, type: 2}
-  buffVFX: {fileID: 1285795701}
   debuffVFX: {fileID: 1168914201}
+  buffVFX: {fileID: 1285795701}
   gameStage: {fileID: 0}
   perStageHp: 
   isDead: 0
@@ -400,6 +405,62 @@ MonoBehaviour:
   clip: {fileID: 0}
   isBgm: 0
   description: 
+--- !u!114 &85241642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85241630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c6a3ad4e863984384d937b6fffd2df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSO: {fileID: 11400000, guid: 59be56c1d0654f440893563e49840035, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 85241635}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: AddMaxHp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &85241643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85241630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c6a3ad4e863984384d937b6fffd2df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSO: {fileID: 11400000, guid: a43a4a90b5f41b04baa3e7afc6a2e4a7, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 85241635}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: AddMaxMana
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &330539144
 GameObject:
   m_ObjectHideFlags: 0
@@ -2461,6 +2522,7 @@ GameObject:
   - component: {fileID: 1447975044}
   - component: {fileID: 1447975045}
   - component: {fileID: 1447975046}
+  - component: {fileID: 1447975047}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -2485,6 +2547,7 @@ MonoBehaviour:
   gameoverPanel: {fileID: 580635959}
   selectCardPanel: {fileID: 1486396582}
   RestRoomPanel: {fileID: 660543359}
+  SelectRewardPanel: {fileID: 2058322538}
 --- !u!4 &1447975039
 Transform:
   m_ObjectHideFlags: 0
@@ -2696,6 +2759,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1447975047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447975037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c6a3ad4e863984384d937b6fffd2df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSO: {fileID: 11400000, guid: 371c6a4a9cf915045aad0e87370ed42b, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1447975038}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: CloseGainPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1460154937
 GameObject:
   m_ObjectHideFlags: 0
@@ -2787,7 +2878,7 @@ MonoBehaviour:
   m_PanelSettings: {fileID: 11400000, guid: c97f8db6d6c318145addd4c202d3eea5, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: b9a27ac1335b9f649bb25c975e9a0d7e, type: 3}
-  m_SortingOrder: 2
+  m_SortingOrder: 20
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
   m_WorldSpaceHeight: 1080
@@ -3262,6 +3353,75 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &2058322538
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2058322539}
+  - component: {fileID: 2058322540}
+  - component: {fileID: 2058322541}
+  m_Layer: 0
+  m_Name: SelectReward Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2058322539
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058322538}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2058322540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058322538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: c97f8db6d6c318145addd4c202d3eea5, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 8176fbc6d56fd7d41a4e78b17f8928c0, type: 3}
+  m_SortingOrder: 15
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+--- !u!114 &2058322541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058322538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77fd6a51a58c0de4abce924aaaa3f7bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addCostLimitEvent: {fileID: 11400000, guid: a43a4a90b5f41b04baa3e7afc6a2e4a7, type: 2}
+  selectCardEvent: {fileID: 11400000, guid: 4fa4695aecb537347aec02ed11548eaf, type: 2}
+  addHPEvent: {fileID: 11400000, guid: 59be56c1d0654f440893563e49840035, type: 2}
+  discardCardEvent: {fileID: 0}
+  closeGainPanel: {fileID: 11400000, guid: 371c6a4a9cf915045aad0e87370ed42b, type: 2}
 --- !u!1 &2063040984
 GameObject:
   m_ObjectHideFlags: 0
@@ -3480,6 +3640,7 @@ MonoBehaviour:
     m_SubObjectGUID: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+  player: {fileID: 85241630}
   afterRoomLoadedEvent: {fileID: 11400000, guid: 1d6d23b48fdcd54459111261ed46ee57, type: 2}
   updateRoomEvent: {fileID: 11400000, guid: 46dcc333c83f686419c7f73a77a12929, type: 2}
 --- !u!114 &2114012833
@@ -3617,3 +3778,4 @@ SceneRoots:
   - {fileID: 660543360}
   - {fileID: 1556762568}
   - {fileID: 383121771}
+  - {fileID: 2058322539}

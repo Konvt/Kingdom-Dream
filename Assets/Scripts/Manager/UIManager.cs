@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     public GameObject gameoverPanel;
     public GameObject selectCardPanel;
     public GameObject RestRoomPanel;
-
+    public GameObject SelectRewardPanel;
 
     public void OnLoadRoomEvent(object data)
     { 
@@ -48,6 +48,11 @@ public class UIManager : MonoBehaviour
     {
         gameplayPanel.SetActive(false);
         gameoverPanel.SetActive(true);
+        var boss = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>();
+        if (boss!=null && boss.hp.currentValue <= 0)
+        {
+            SelectRewardPanel.SetActive(true);
+        }
     }
     public void OnSelectCardEvent()
     {
@@ -58,5 +63,9 @@ public class UIManager : MonoBehaviour
     {
         selectCardPanel.SetActive(false);
 
+    }
+    public void CloseGainPanel()
+    {
+        SelectRewardPanel.SetActive(false);
     }
 }

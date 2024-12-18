@@ -13,6 +13,7 @@ public class SceneLoadManager : MonoBehaviour
     public AssetReference currentScene; //保存当前场景
     public AssetReference start; //开始场景
 
+    public GameObject player;
     [Header("广播")]
     public ObjectEventSO afterRoomLoadedEvent;
     public ObjectEventSO updateRoomEvent;
@@ -79,6 +80,8 @@ public class SceneLoadManager : MonoBehaviour
         if(currentRoomVector!=Vector2.one*-1) updateRoomEvent.RiseEvent(currentRoomVector, this);
 
         currentScene = Map;
+
+        player.SetActive(false);
 
         await LoadSceneTask();
     }

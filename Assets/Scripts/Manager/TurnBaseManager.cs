@@ -96,7 +96,7 @@ public class TurnBaseManager : MonoBehaviour
     public void ShutTurnBaseEvent()
     {
         battleEnd = true;
-        player.SetActive (false);
+      //  player.SetActive (false);
     }
 
     public void NewGame()

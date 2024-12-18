@@ -54,6 +54,16 @@ public class Player : CharacterBase
         NewTurn();
         strengthRound.SetValue(0);
     }
+    public void AddMaxHp()
+    {
+        
+        maxHp += 4;
+        hp.maxValue = maxHp;
+    }
+    public void AddMaxMana()
+    {
+        maxMana += 1;
+    }
 }
 
     

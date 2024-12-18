@@ -923,11 +923,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 100
+  JumpTurn: 0
+  CannotBeAttack: 0
+  delaydefence: 0
   hp: {fileID: 11400000, guid: 9a94327c7e1ce3d4f8428e0d8de7e5b8, type: 2}
   defense: {fileID: 11400000, guid: 735125827f3eabd4686c2bf86530cd2c, type: 2}
   strengthRound: {fileID: 11400000, guid: 3399ed5724b48f541a061e25106e9a23, type: 2}
-  buffVFX: {fileID: 2145483971}
   debuffVFX: {fileID: 1785183508}
+  buffVFX: {fileID: 2145483971}
   gameStage: {fileID: 11400000, guid: c44bdf49f107be24c830fa93eed36c9f, type: 2}
   perStageHp: 640000006e00000078000000820000008c00000096000000a0000000aa000000b4000000be000000
   isDead: 0
