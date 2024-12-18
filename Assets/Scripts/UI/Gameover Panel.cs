@@ -16,8 +16,6 @@ public class GameoverPanel : MonoBehaviour
 
         startNextStage = GetComponent<UIDocument>().rootVisualElement.Q<Button>("StartNextStage");
         startNextStage.clicked += OnStartNextStageButtonclicked;
-
-        startNextStage.style.display = DisplayStyle.Flex;
     }
 
     private void OnStartNextStageButtonclicked()
@@ -28,9 +26,5 @@ public class GameoverPanel : MonoBehaviour
     private void OnBackToStartButtonclicked()
     {
         backToStartEvent.RiseEvent(null, this);
-    }
-    public void DisableNextStage()
-    {
-        startNextStage.style.display = DisplayStyle.None;
     }
 }

@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: NewGame Library
   m_EditorClassIdentifier: 
   cardLibraryList:
-  - cardData: {fileID: 11400000, guid: 2a7dd879ff3452b488933f3f47e551c0, type: 2}
-    amount: 10
+  - cardData: {fileID: 11400000, guid: aed016a688cf14f4c90fc0aa46eb7e2e, type: 2}
+    amount: 3
+  - cardData: {fileID: 11400000, guid: 778b99dbff23235448f3de5258dbe92c, type: 2}
+    amount: 3
+  - cardData: {fileID: 11400000, guid: 62be418c13dab4e40a646a979c46ae73, type: 2}
+    amount: 3
+  - cardData: {fileID: 11400000, guid: 3ac5e1736ebcfc64fbc4e236030cdebf, type: 2}
+    amount: 3
   description: "\u8FD9\u4E2A\u662F\u6E38\u620F\u65B0\u5F00\u59CB\u7684\u9ED8\u8BA4\u724C\u5E93"

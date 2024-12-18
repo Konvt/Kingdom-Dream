@@ -48,10 +48,6 @@ public class UIManager : MonoBehaviour
     {
         gameplayPanel.SetActive(false);
         gameoverPanel.SetActive(true);
-        if (GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().hp.currentValue <= 0)
-        {
-            gameoverPanel.GetComponent<GameoverPanel>().DisableNextStage();
-        }
     }
     public void OnSelectCardEvent()
     {
