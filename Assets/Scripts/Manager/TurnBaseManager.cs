@@ -58,6 +58,7 @@ public class TurnBaseManager : MonoBehaviour
     public void PlayerTurnBegin()
     {
         playerTurnBegin.RiseEvent(null, this);
+             
     }
     public void EnemyTurnBegin()
     {

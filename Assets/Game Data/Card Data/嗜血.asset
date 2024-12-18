@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\u55DC\u8840"
   m_EditorClassIdentifier: 
   cardName: "\u55DC\u8840"
-  cardImage: {fileID: 21300000, guid: 1d1ab7ab7a20e1b42ad48a6dd3434c3b, type: 3}
+  cardImage: {fileID: 21300000, guid: 5fff8175e6b5f1d479107759560751d1, type: 3}
   cost: 1
   cardType: 0
   cardDescription: "\u9020\u6210 <color=\"red\">6</color> \u4F24\u5BB3 \u6062\u590D<color=\"green\">2</color>\u70B9\u751F\u547D\u503C"
