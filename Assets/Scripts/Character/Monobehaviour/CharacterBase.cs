@@ -6,14 +6,20 @@ public class CharacterBase : MonoBehaviour
 {
     public int maxHp;
 
+    public bool JumpTurn = false;
+
+    public int CannotBeAttack = 0;
+
+    public int delaydefence = 0;
+
     public IntVariable hp;
 
     public IntVariable defense;
 
     public IntVariable strengthRound;
 
-    public GameObject buffVFX;
     public GameObject debuffVFX;
+    public GameObject buffVFX;
 
     [Header("游戏阶段")]
     public IntVariable gameStage;
@@ -60,9 +66,37 @@ public class CharacterBase : MonoBehaviour
 
     public virtual void TakeDamage(int damage)
     {
-        var currentDamage = damage - defense.currentValue >= 0 ? damage - defense.currentValue : 0;
-        var currentDefense = damage - defense.currentValue >= 0 ? 0:defense.currentValue- damage;
-        defense.SetValue(currentDefense);
+        if (CannotBeAttack!=0)
+        {
+            animator.SetTrigger("hit");
+            audioSender.Play(audioClipList[0]);
+        }
+        else
+        {
+            var currentDamage = damage - defense.currentValue >= 0 ? damage - defense.currentValue : 0;
+            var currentDefense = damage - defense.currentValue >= 0 ? 0:defense.currentValue- damage;
+            defense.SetValue(currentDefense);
+            if (CurrentHp > currentDamage)
+            {
+                CurrentHp -= currentDamage;
+                animator.SetTrigger("hit");
+                audioSender.Play(audioClipList[0]);
+            }
+            else
+            {
+                //死亡逻辑
+                CurrentHp = 0;
+                isDead = true;
+                audioSender.Play(audioClipList[1]);
+                characterDeadEvnet.RiseEvent(this, this);
+            }
+        }
+        
+    }
+
+    public virtual void ThroughDefenceDamage(int damage)
+    {
+        var currentDamage = damage;
         if (CurrentHp > currentDamage)
         {
             CurrentHp -= currentDamage;
@@ -79,6 +113,7 @@ public class CharacterBase : MonoBehaviour
         }
     }
 
+
     public void UpdateDefense(int amount)
     {
         var value = amount + defense.currentValue;
@@ -86,8 +121,25 @@ public class CharacterBase : MonoBehaviour
     }
     public void ResetDefense()
     {
-        defense.SetValue(0);
+        if (delaydefence!=0)
+        {
+            defense.SetValue(delaydefence);
+            delaydefence = 0;
+        }
+        else
+        {
+            defense.SetValue(0); 
+        }
+        
     }
+
+    public void NoResetDefence(int value)
+    {
+        delaydefence += value;
+    }
+
+
+
     public void Heal(int amount)
     {
         if (amount > 0)
@@ -98,7 +150,7 @@ public class CharacterBase : MonoBehaviour
         }
         else
         {
-            TakeDamage(-amount);
+            ThroughDefenceDamage(-amount);
         }
     }
 
@@ -117,9 +169,8 @@ public class CharacterBase : MonoBehaviour
             baseStrength = MathF.Max(newStrength, 0.5f);
         }
         var currentRound = strengthRound.currentValue + round;
-        if (baseStrength == 1) strengthRound.SetValue(0); //可以用一张牌抵消全部的负面回合
+        if (baseStrength == 1) strengthRound.SetValue(0); //可以用一张同类型增益牌抵消全部的负面回合
         else strengthRound.SetValue(currentRound);
-        GetComponent<HealthBarController>().SetIntendElement();
     }
 
     public void UpdateStrength()
@@ -131,4 +182,30 @@ public class CharacterBase : MonoBehaviour
             strengthRound.SetValue(0);
         }
     }
+    public void ChangeJumpTurn()
+    {
+        JumpTurn=true;
+
+    }
+    public void ResetJumpTurn()
+    {
+        JumpTurn=false;
+
+    }
+
+    public void ChangeCanNotBeAttack(int value)
+    {
+        CannotBeAttack += value;
+    }
+    public void ResetCanNotBeAttack()
+    {
+        CannotBeAttack -= 1;
+        if(CannotBeAttack <= 0)CannotBeAttack=0;
+    }
+
+
+
+
 }
+
+

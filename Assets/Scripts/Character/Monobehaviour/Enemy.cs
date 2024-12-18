@@ -23,22 +23,22 @@ public class Enemy :CharacterBase
     public virtual void OnPlayerTurnBegin()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        UpdateStrength();
 
         //玩家回合时，随机挑选一个招式
+        
         int randomActionIndex = Random.Range(0, actionDataSO.actions.Count);
         currentAction = actionDataSO.actions[randomActionIndex];
-
        
-
+        
     }
     public virtual void OnEnemyTurnBegin()
     {
         ResetDefense();
-       
-        
-        switch (currentAction.effect.targetType)
+        ResetCanNotBeAttack();
+        if (!JumpTurn)
         {
+            switch (currentAction.effect.targetType)
+            {
             case EffectTargetType.Self:
                 Skill();
                 break;
@@ -46,7 +46,13 @@ public class Enemy :CharacterBase
                 Attack();
                 break;
             case EffectTargetType.All: break;
+            }
         }
+        else
+        {
+            ResetJumpTurn();
+        }
+        
     }
     public virtual void Skill()
     {

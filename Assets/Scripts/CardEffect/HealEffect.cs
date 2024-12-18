@@ -15,6 +15,13 @@ public class HealEffect : Effect
         {
             target.Heal(value);
         }
+        else if (targetType == EffectTargetType.All)    //全体敌方单位回血
+        {
+            foreach (var enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+                {
+                    enemy.GetComponent<CharacterBase>().Heal(value);
+                }
+        }
         if(soumdVFX!=null)
         AudioPlayer.instance.PlayVFX(soumdVFX);
     }

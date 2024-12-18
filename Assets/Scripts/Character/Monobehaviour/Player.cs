@@ -20,7 +20,16 @@ public class Player : CharacterBase
     }
     public void NewTurn()
     {
-        currentMana = maxMana;
+        if (JumpTurn)
+        {
+            currentMana = 0;
+            JumpTurn = false;
+        }
+        else
+        {
+            currentMana = maxMana;
+        }
+        ResetCanNotBeAttack();
         UpdataCardState.RiseEvent(null, this);
     }
     public void UpdataMana(int cost)
@@ -33,6 +42,10 @@ public class Player : CharacterBase
         else currentMana= value;
 
     }
+    public void UpMana(int value)
+    {
+        currentMana += value;
+    }
 
     public void NewGame()
     {
@@ -42,3 +55,5 @@ public class Player : CharacterBase
         strengthRound.SetValue(0);
     }
 }
+
+    
