@@ -1,7 +1,7 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/TurnButton.uss?fileID=7433441132597879392&amp;guid=e803670e336710c46af809a85e41b8ab&amp;type=3#TurnButton" />
-    <engine:VisualElement style="flex-grow: 1; height: 373px; width: 272px;">
-        <engine:Button text="Button" name="Card" class="turnButton" style="position: absolute; height: 435px; width: 314px; background-color: rgba(255, 255, 255, 0); top: -13px; left: -8px; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; right: auto;">
+    <engine:VisualElement style="flex-grow: 1; height: 373px; width: 274px; position: absolute; left: 4px; top: 10px;">
+        <engine:Button text="Button" name="Card" class="turnButton" style="position: absolute; height: 386px; width: 306px; background-color: rgba(255, 255, 255, 0); top: -18px; left: -15px; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; right: auto;">
             <engine:VisualElement name="Background" style="flex-grow: 1; position: absolute; width: 300px; height: 360px; background-image: url(&quot;project://database/Assets/Art/Card/card_background.png?fileID=2800000&amp;guid=d5dea4558803f48b1aa1a761a895692c&amp;type=3#card_background&quot;); -unity-background-scale-mode: scale-to-fit; top: 26px; left: 2px;">
                 <engine:VisualElement name="Sprite" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/UniversalIconBronze/Textures/Icons/Gloves_01.png?fileID=2800000&amp;guid=ab2c0effa4522104dbdb381ab0b16a7b&amp;type=3#Gloves_01&quot;); position: absolute; height: 232px; width: 228px; -unity-background-scale-mode: scale-to-fit; top: 16px; left: 33px;" />
             </engine:VisualElement>
@@ -16,6 +16,8 @@
             <engine:VisualElement name="Slot" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/Card/card_slot.png?fileID=2800000&amp;guid=8ae7689670922454695b3dde5a5945a9&amp;type=3#card_slot&quot;); -unity-background-scale-mode: scale-to-fit; position: absolute; height: 33px; width: 44px; top: 13px; left: 18px;">
                 <engine:Label text="1" name="CostLabel" emoji-fallback-support="false" style="color: rgb(255, 255, 255); -unity-font-definition: resource(&apos;SmileySans-Oblique&apos;); -unity-text-align: upper-center; font-size: 20px; position: absolute; top: -5px; left: 15px;" />
             </engine:VisualElement>
+            <engine:Label text="Label" name="CardName" style="position: absolute; height: 98px; width: 269px; -unity-font-definition: resource(&apos;SmileySans-Oblique&apos;); font-size: 40px; color: rgb(255, 255, 255); top: 1px; left: 9px;" />
+            <engine:Label text="Label" name="Amount" style="position: absolute; height: 98px; width: 269px; -unity-font-definition: resource(&apos;SmileySans-Oblique&apos;); font-size: 30px; color: rgb(255, 255, 255); top: 90px; left: 9px; display: none;" />
         </engine:Button>
     </engine:VisualElement>
 </engine:UXML>

@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public GameObject selectCardPanel;
     public GameObject RestRoomPanel;
     public GameObject SelectRewardPanel;
+    public GameObject DiscardPanel;
 
     public void OnLoadRoomEvent(object data)
     { 
@@ -67,5 +68,13 @@ public class UIManager : MonoBehaviour
     public void CloseGainPanel()
     {
         SelectRewardPanel.SetActive(false);
+    }
+    public void OnDiscard()
+    {
+        DiscardPanel.SetActive(true);
+    }
+    public void CloseDiscard()
+    {
+        DiscardPanel.SetActive(false);
     }
 }

@@ -2004,6 +2004,73 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735061947}
   m_Mesh: {fileID: 0}
+--- !u!1 &806978405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 806978406}
+  - component: {fileID: 806978407}
+  - component: {fileID: 806978408}
+  m_Layer: 0
+  m_Name: Disacard Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &806978406
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806978405}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &806978407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806978405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: c97f8db6d6c318145addd4c202d3eea5, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 28bc1ecf891db1047ac2003f558b6db0, type: 3}
+  m_SortingOrder: 20
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+--- !u!114 &806978408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806978405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c00c0aa7292f5814aabee58ed9424c3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardTemplate: {fileID: 9197481963319205126, guid: 4dfd5deb4f049c04fb8ddf14efead6f4, type: 3}
+  cardManager: {fileID: 1460154939}
+  finishDiscardCard: {fileID: 11400000, guid: b87e818e47be74945820db90735a02ca, type: 2}
 --- !u!1 &914766586
 GameObject:
   m_ObjectHideFlags: 0
@@ -2523,6 +2590,8 @@ GameObject:
   - component: {fileID: 1447975045}
   - component: {fileID: 1447975046}
   - component: {fileID: 1447975047}
+  - component: {fileID: 1447975048}
+  - component: {fileID: 1447975049}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -2548,6 +2617,7 @@ MonoBehaviour:
   selectCardPanel: {fileID: 1486396582}
   RestRoomPanel: {fileID: 660543359}
   SelectRewardPanel: {fileID: 2058322538}
+  DiscardPanel: {fileID: 806978405}
 --- !u!4 &1447975039
 Transform:
   m_ObjectHideFlags: 0
@@ -2778,6 +2848,62 @@ MonoBehaviour:
       - m_Target: {fileID: 1447975038}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: CloseGainPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1447975048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447975037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c6a3ad4e863984384d937b6fffd2df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSO: {fileID: 11400000, guid: b87e818e47be74945820db90735a02ca, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1447975038}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: CloseDiscard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1447975049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447975037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c6a3ad4e863984384d937b6fffd2df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSO: {fileID: 11400000, guid: 651dc5d86614262478f0b97943e84b78, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1447975038}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: OnDiscard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3420,7 +3546,7 @@ MonoBehaviour:
   addCostLimitEvent: {fileID: 11400000, guid: a43a4a90b5f41b04baa3e7afc6a2e4a7, type: 2}
   selectCardEvent: {fileID: 11400000, guid: 4fa4695aecb537347aec02ed11548eaf, type: 2}
   addHPEvent: {fileID: 11400000, guid: 59be56c1d0654f440893563e49840035, type: 2}
-  discardCardEvent: {fileID: 0}
+  discardCardEvent: {fileID: 11400000, guid: 651dc5d86614262478f0b97943e84b78, type: 2}
   closeGainPanel: {fileID: 11400000, guid: 371c6a4a9cf915045aad0e87370ed42b, type: 2}
 --- !u!1 &2063040984
 GameObject:
@@ -3779,3 +3905,4 @@ SceneRoots:
   - {fileID: 1556762568}
   - {fileID: 383121771}
   - {fileID: 2058322539}
+  - {fileID: 806978406}

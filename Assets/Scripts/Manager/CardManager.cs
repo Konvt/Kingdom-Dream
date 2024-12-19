@@ -104,4 +104,19 @@ public class CardManager : MonoBehaviour
         if(!flag) currentCardLibrary.cardLibraryList.Add(newCard);
 
     }
+    public void DiscardOneCard(CardDataSO newCardData)
+    {
+
+        for (int i = 0; i < currentCardLibrary.cardLibraryList.Count; i++)
+        {
+            if (currentCardLibrary.cardLibraryList[i].cardData.cardName == newCardData.cardName)
+            {
+                var temp = currentCardLibrary.cardLibraryList[i];
+                temp.amount--;
+                if(temp.amount<=0) currentCardLibrary.cardLibraryList.RemoveAt(i);
+                else currentCardLibrary.cardLibraryList[i] = temp;
+            }
+        }
+
+    }
 }
