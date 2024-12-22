@@ -15,7 +15,7 @@ MonoBehaviour:
   roomBlueprints:
   - min: 2
     max: 3
-    roomType: 32
+    roomType: 1
   - min: 3
     max: 4
     roomType: 3

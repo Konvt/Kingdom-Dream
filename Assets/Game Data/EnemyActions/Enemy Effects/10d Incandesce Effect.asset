@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 253cb9173bc92fa48977d2d6402acb35, type: 3}
-  m_Name: Enemy Defense
+  m_Script: {fileID: 11500000, guid: 3e941b5b343c8084f89c9bde7c4bb1cc, type: 3}
+  m_Name: 10d Incandesce Effect
   m_EditorClassIdentifier: 
-  maxValue: 10
-  currentValue: 0
-  valueChangedEvent: {fileID: 0}
-  description: 
+  value: 10
+  targetType: 0
+  soumdVFX: {fileID: 0}
